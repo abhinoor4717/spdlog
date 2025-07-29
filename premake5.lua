@@ -4,6 +4,8 @@ project "spdlog"
     cppdialect "C++17"
     staticruntime "on"
 
+outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
+
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
@@ -24,6 +26,11 @@ project "spdlog"
 
     filter "system:windows"
         systemversion "latest"
+
+    filter "action:vs*"
+        buildoptions {
+            "/utf-8"
+        }
 
     filter "configurations:Debug"
         runtime "Debug"
