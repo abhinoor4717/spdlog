@@ -2,7 +2,6 @@ project "spdlog"
     kind "StaticLib"
     language "C++"
     cppdialect "C++17"
-    staticruntime "on"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
